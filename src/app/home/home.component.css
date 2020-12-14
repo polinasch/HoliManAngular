@@ -1,0 +1,16 @@
+h1 {
+    text-align: center
+}
+button {
+    width: 100%;
+}
+#home{
+    margin: 10px;
+}
+button.row1{
+    background: #f8f9fa;
+}
+button.row2{
+    background: #343a40;
+    color: white;
+}
