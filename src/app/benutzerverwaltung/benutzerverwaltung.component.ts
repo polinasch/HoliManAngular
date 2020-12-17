@@ -33,4 +33,21 @@ export class BenutzerverwaltungComponent implements OnInit {
     this.benutzerService.getBenutzer().subscribe(Benutzer => (this.Benutzer = Benutzer));
   }
 
+  deleteBenutzer(id: number): void {
+    this.benutzerService
+      .deleteBenutzer(id)
+      .toPromise()
+      .then(() => {
+        this.Benutzer = this.Benutzer.filter((benutzer: ApiModel.Benutzer) => {
+          return benutzer.BenutzerID !== id;
+        });
+      })
+      .catch((reason: any) => {
+        console.error(reason);
+      })
+      .finally(() => {
+        // do something on finally
+      });
+  }
+
 }
