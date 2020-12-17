@@ -13,8 +13,17 @@ export class BenutzerComponent implements OnInit {
   model: ApiModel.Benutzer = new ApiModel.Benutzer();
   bundeslaender: ApiModel.Bundesland[];
   vorgesetzten: ApiModel.Benutzer[];
+  maxEintritt: Date;
+  maxGeburtstag: Date;
 
-  constructor(private router: Router, private benutzerService: BenutzerService, private bundeslandService: BundeslandService) { }
+  constructor(private router: Router, private benutzerService: BenutzerService, private bundeslandService: BundeslandService) {
+    const datum = new Date();
+    const datum_heute = new Date(datum.getFullYear(), datum.getMonth(), datum.getDate());
+    this.maxEintritt = new Date(datum_heute);
+
+    this.maxGeburtstag = new Date(datum_heute);
+    this.maxGeburtstag.setFullYear(this.maxGeburtstag.getFullYear()-14);
+   }
 
   ngOnInit(): void {
     this.model.bundesland = new ApiModel.Bundesland();
