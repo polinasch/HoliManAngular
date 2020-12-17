@@ -20,6 +20,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import { EditBenutzerComponent } from './edit-benutzer/edit-benutzer.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +47,9 @@ import { EditBenutzerComponent } from './edit-benutzer/edit-benutzer.component';
     MatCheckboxModule,
     MatSelectModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
