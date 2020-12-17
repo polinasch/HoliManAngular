@@ -28,7 +28,9 @@
         <p>
         <mat-form-field>
             <mat-label>Geburtsdatum</mat-label>
-            <input matInput type="date" name="geburtsdatum" #geburtsdatumControl="ngModel" [(ngModel)]="model.Geburtsdatum" required>
+            <input matInput name="geburtsdatum" #geburtsdatumControl="ngModel" [(ngModel)]="model.Geburtsdatum" required [matDatepicker]="geburtstag">
+            <mat-datepicker-toggle matSuffix [for]="geburtstag"></mat-datepicker-toggle>
+            <mat-datepicker #geburtstag></mat-datepicker>
         </mat-form-field>
         </p>
         <p>
@@ -40,7 +42,9 @@
         <p>
         <mat-form-field>
             <mat-label>Eintrittsdatum</mat-label>
-            <input matInput type="date" name="eintrittsdatum" #eintrittsdatumControl="ngModel" [(ngModel)]="model.Eintrittsdatum" required>
+            <input matInput name="eintrittsdatum" #eintrittsdatumControl="ngModel" [(ngModel)]="model.Eintrittsdatum" required [matDatepicker]="eintritt">
+            <mat-datepicker-toggle matSuffix [for]="eintritt"></mat-datepicker-toggle>
+            <mat-datepicker #eintritt></mat-datepicker>
         </mat-form-field>
         </p>
         <p>
