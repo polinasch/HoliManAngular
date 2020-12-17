@@ -1,0 +1,19 @@
+#benutzer{
+    margin: auto;
+    width: 70%;
+}
+#form {
+    margin: 10px;
+}
+h2 {
+    text-align: center;
+}
+mat-form-field {
+    width: 100%;
+}
+mat-checkbox {
+    margin: 5px;
+}
+button {
+    margin-bottom: 10px;
+}

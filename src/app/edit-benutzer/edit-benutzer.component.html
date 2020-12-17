@@ -1,0 +1,80 @@
+<div id="benutzer">
+    <h2>Benutzer bearbeiten</h2>
+    <form id="form" #editBenutzerForm="ngForm">
+        <p>
+        <mat-form-field>
+            <mat-label>Benutzername</mat-label>
+            <input matInput type="text" name="benutzername" #benutzernameControl="ngModel" [(ngModel)]="Benutzer.Benutzername" required>
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field>
+            <mat-label>Passwort</mat-label>
+            <input matInput type="password" name="passwort" #passwortControl="ngModel" [(ngModel)]="Benutzer.Passwort" required>
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field>
+            <mat-label>Vorname</mat-label>
+            <input matInput type="text" name="vorname" #vornameControl="ngModel" [(ngModel)]="Benutzer.Vorname" required>
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field>
+            <mat-label>Nachname</mat-label>
+            <input matInput type="text" name="nachname" #nachnameControl="ngModel" [(ngModel)]="Benutzer.Nachname" required>
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field>
+            <mat-label>Geburtsdatum</mat-label>
+            <input matInput name="geburtsdatum" #geburtsdatumControl="ngModel" [(ngModel)]="Benutzer.Geburtsdatum" required [matDatepicker]="geburtstag">
+            <mat-datepicker-toggle matSuffix [for]="geburtstag"></mat-datepicker-toggle>
+            <mat-datepicker #geburtstag></mat-datepicker>
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" #emailControl="ngModel" [(ngModel)]="Benutzer.Email" required>
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field>
+            <mat-label>Eintrittsdatum</mat-label>
+            <input matInput name="eintrittsdatum" #eintrittsdatumControl="ngModel" [(ngModel)]="Benutzer.Eintrittsdatum" required [matDatepicker]="eintritt">
+            <mat-datepicker-toggle matSuffix [for]="eintritt"></mat-datepicker-toggle>
+            <mat-datepicker #eintritt></mat-datepicker>
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field>
+            <mat-label>Bundesland</mat-label>
+            <mat-select matNativeControl name="bundesland" [(ngModel)]="Benutzer.bundesland.BundeslandID" required>
+                <mat-option  *ngFor="let bundesland of bundeslaender"
+                    [value]="bundesland.BundeslandID" >
+                    {{bundesland.Name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </p>
+        <label>Zusätzliche Rollen</label>
+            <section>
+                <mat-checkbox name="admin" #admimControl="ngModel" [(ngModel)]="Benutzer.istAdmin">Admin</mat-checkbox>
+                <mat-checkbox name="vorgesetzter" #vorgesetzterControl="ngModel" [(ngModel)]="Benutzer.istVorgesetzter">Vorgesetzter
+                </mat-checkbox>
+            </section>
+        <p>
+        <mat-form-field>
+            <mat-label>Vorgesetzter</mat-label>
+            <mat-select matNativeControl name="vorgesetzten" [(ngModel)]="Benutzer.Vorgesetzter" required>
+                <mat-option *ngFor="let vorgesetzter of vorgesetzten" [value]="vorgesetzter.BenutzerID">
+                    {{vorgesetzter.Vorname}} {{vorgesetzter.Nachname}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </p>
+    </form>
+    <button mat-stroked-button (click)="updateBenutzer()" [disabled]="!editBenutzerForm.form.valid">Speichern</button>&nbsp;
+    <button mat-stroked-button routerLink="/benutzerverwaltung">Abbrechen</button>
+</div>
