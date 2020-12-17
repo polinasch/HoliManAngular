@@ -1,0 +1,76 @@
+<div id="benutzer">
+    <h2>Benutzer erstellen</h2>
+    <form id="form" #newBenutzerForm="ngForm">
+        <p>
+        <mat-form-field>
+            <mat-label>Benutzername</mat-label>
+            <input matInput type="text" name="benutzername" #benutzernameControl="ngModel" [(ngModel)]="model.Benutzername" required>
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field>
+            <mat-label>Passwort</mat-label>
+            <input matInput type="password" name="passwort" #passwortControl="ngModel" [(ngModel)]="model.Passwort" required>
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field>
+            <mat-label>Vorname</mat-label>
+            <input matInput type="text" name="vorname" #vornameControl="ngModel" [(ngModel)]="model.Vorname" required>
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field>
+            <mat-label>Nachname</mat-label>
+            <input matInput type="text" name="nachname" #nachnameControl="ngModel" [(ngModel)]="model.Nachname" required>
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field>
+            <mat-label>Geburtsdatum</mat-label>
+            <input matInput type="date" name="geburtsdatum" #geburtsdatumControl="ngModel" [(ngModel)]="model.Geburtsdatum" required>
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" #emailControl="ngModel" [(ngModel)]="model.Email" required>
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field>
+            <mat-label>Eintrittsdatum</mat-label>
+            <input matInput type="date" name="eintrittsdatum" #eintrittsdatumControl="ngModel" [(ngModel)]="model.Eintrittsdatum" required>
+        </mat-form-field>
+        </p>
+        <p>
+        <mat-form-field>
+            <mat-label>Bundesland</mat-label>
+            <mat-select matNativeControl name="bundesland" [(ngModel)]="model.bundesland" required>
+                <mat-option  *ngFor="let bundesland of bundeslaender"
+                    [value]="bundesland.BundeslandID" >
+                    {{bundesland.Name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </p>
+        <label>Zusätzliche Rollen</label>
+            <section>
+                <mat-checkbox name="admin" #admimControl="ngModel" [(ngModel)]="model.istAdmin">Admin</mat-checkbox>
+                <mat-checkbox name="vorgesetzter" #vorgesetzterControl="ngModel" [(ngModel)]="model.istVorgesetzter">Vorgesetzter
+                </mat-checkbox>
+            </section>
+        <p>
+        <mat-form-field>
+            <mat-label>Vorgesetzter</mat-label>
+            <mat-select matNativeControl name="vorgesetzten" [(ngModel)]="model.Vorgesetzter" required>
+                <mat-option *ngFor="let vorgesetzter of vorgesetzten" [value]="vorgesetzter.BenutzerID">
+                    {{vorgesetzter.Vorname}} {{vorgesetzter.Nachname}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </p>
+    </form>
+    <button mat-stroked-button (click)="addBenutzer()" [disabled]="!newBenutzerForm.form.valid">Speichern</button>&nbsp;
+    <button mat-stroked-button routerLink="/benutzerverwaltung">Abbrechen</button>
+</div>
