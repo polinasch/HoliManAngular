@@ -1,0 +1,20 @@
+<div id="verwaltung">
+<h2>Benutzerverwaltung</h2>
+<mat-grid-list cols="2" rowHeight="40px" gutterSize="5px">
+  <mat-grid-tile>
+    <button mat-stroked-button routerLink="/benutzer" routerLinkActive="active" class="row1">Neuen Benutzer erstellen</button>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <button mat-stroked-button routerLink="" routerLinkActive="active" class="row1">Zur Startseite</button>
+  </mat-grid-tile>
+</mat-grid-list>
+<td-data-table #dataTable [data]="Benutzer" [columns]="columns">
+  <ng-template tdDataTableTemplate="Aktionen" let-value="value" let-row="row" let-column="column">
+    <button mat-button (click)="deleteBenutzer(row.BenutzerID)"><mat-icon>delete</mat-icon></button>
+    <button mat-button [routerLink]="['/editBenutzer', row.BenutzerID]"><mat-icon>edit</mat-icon></button>
+  </ng-template>
+</td-data-table>
+<div class="md-padding" *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
+  <h3>Keine Einträge vorhanden.</h3>
+</div>
+</div>
