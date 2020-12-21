@@ -1,0 +1,56 @@
+<div id="antrag">
+    <h2>Urlaubsantrag erstellen</h2>
+    <form id="form" #newAntragForm="ngForm">
+        <p>
+            <mat-form-field>
+                <mat-label>Mitarbeiter</mat-label>
+                <mat-select matNativeControl name="benutzer" [(ngModel)]="Antrag.benutzer.BenutzerID" required>
+                    <mat-option *ngFor="let benutzer of alleBenutzer" [value]="benutzer.BenutzerID">
+                        {{benutzer.BenutzerID}}: {{benutzer.Vorname}} {{benutzer.Nachname}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Urlaubsart</mat-label>
+                <mat-select matNativeControl name="urlaubsart" [(ngModel)]="Antrag.Urlaubsart" required>
+                    <mat-option *ngFor="let art of Arten" [value]="art.value">
+                        {{art.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </p>
+        <p>
+            <label>Grund</label>
+            <mat-radio-group name="grund" [(ngModel)]="Antrag.Grund" class="radio-group">
+                <mat-radio-button class="radio-button" *ngFor="let grund of Gruende" [value]="grund">
+                    {{grund}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Anfangsdatum</mat-label>
+                <input matInput name="anfangsdatum" #anfangsdatumControl="ngModel" [(ngModel)]="Antrag.von"
+                    required [matDatepicker]="anfang" [min]="minAnfang">
+                <mat-datepicker-toggle matSuffix [for]="anfang"></mat-datepicker-toggle>
+                <mat-datepicker #anfang></mat-datepicker>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Enddatum</mat-label>
+                <input matInput name="enddatum" #enddatumControl="ngModel"
+                    [(ngModel)]="Antrag.bis" required [matDatepicker]="ende" [min]="Antrag.von">
+                <mat-datepicker-toggle matSuffix [for]="ende"></mat-datepicker-toggle>
+                <mat-datepicker #ende></mat-datepicker>
+            </mat-form-field>
+        </p>
+        <p>
+            Anzahl der Urlaubstag:
+        </p>
+    </form>
+    <button mat-stroked-button (click)="addAntrag()" [disabled]="!newAntragForm.form.valid">Speichern</button>&nbsp;
+    <button mat-stroked-button routerLink="">Abbrechen</button>
+</div>

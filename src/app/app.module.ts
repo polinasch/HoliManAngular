@@ -22,6 +22,8 @@ import {FormsModule} from '@angular/forms';
 import { EditBenutzerComponent } from './edit-benutzer/edit-benutzer.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AntragComponent } from './antrag/antrag.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     HomeComponent,
     BenutzerverwaltungComponent,
     BenutzerComponent,
-    EditBenutzerComponent
+    EditBenutzerComponent,
+    AntragComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatFormFieldModule,
     FormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

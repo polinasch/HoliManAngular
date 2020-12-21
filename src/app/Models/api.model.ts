@@ -13,12 +13,11 @@ export namespace ApiModel {
       Eintrittsdatum?: Date;
       arbeitstage?: Arbeitstage;
       bundesland?: Bundesland;
-      anträge?: Urlaubsantrag[];
     }
   
     export class Urlaubsantrag {
       AntragID?: number;
-      Urlaubart?: string;
+      Urlaubsart?: string;
       Status?: string;
       von?: Date;
       bis?: Date;
@@ -35,15 +34,13 @@ export namespace ApiModel {
       Donnerstag?: boolean;
       Freitag?: boolean;
       Samstag?: boolean;
-      Sonntga?: boolean;
-      alleBneutzer?: Benutzer[];
+      Sonntag?: boolean;
     }
   
     export class Bundesland {
       BundeslandID?: number;
       Abkürzung?: string;
       Name?: string;
-      alleBenutzer?: Benutzer[];
     }
 
   }
