@@ -4,6 +4,7 @@ import { ITdDataTableColumn } from '@covalent/core/data-table';
 import { ApiModel } from '../Models/api.model';
 import { AntragService } from '../Services/antrag.service';
 import { BenutzerService } from '../Services/benutzer.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-list-antraege',
@@ -25,7 +26,8 @@ export class ListAntraegeComponent implements OnInit {
     { name: 'Aktionen', label: 'Aktionen', sortable: false }
   ];
 
-  constructor(private benutzerService: BenutzerService, private router: Router, private antragService: AntragService) { }
+  constructor(private benutzerService: BenutzerService, private router: Router, private antragService: AntragService) {
+  }
 
   ngOnInit(): void {
     this.getBenutzer();
@@ -38,6 +40,11 @@ export class ListAntraegeComponent implements OnInit {
 
   getBenutzer(): void {
     this.benutzerService.getBenutzer().subscribe(Benutzer => (this.alleBenutzer = Benutzer));
+  }
+
+  getUrlaubstage(von, bis){
+    let tage = moment(bis).diff(moment(von), 'days')+1;
+    return tage;
   }
 
   deleteAntrag(id: number): void {
