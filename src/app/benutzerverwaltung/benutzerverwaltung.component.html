@@ -10,8 +10,8 @@
 </mat-grid-list>
 <td-data-table #dataTable [data]="Benutzer" [columns]="columns">
   <ng-template tdDataTableTemplate="Aktionen" let-value="value" let-row="row" let-column="column">
-    <button mat-button (click)="deleteBenutzer(row.BenutzerID)"><mat-icon>delete</mat-icon></button>
     <button mat-button [routerLink]="['/editBenutzer', row.BenutzerID]"><mat-icon>edit</mat-icon></button>
+    <button mat-button (click)="deleteBenutzer(row.BenutzerID)" color="warn"><mat-icon>delete</mat-icon></button>
   </ng-template>
 </td-data-table>
 <div *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
