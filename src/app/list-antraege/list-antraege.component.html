@@ -19,6 +19,12 @@
       <ng-template tdDataTableTemplate="Urlaubstage" let-value="value" let-row="row" let-column="column">
         <p>{{getUrlaubstage(row.von, row.bis)}}</p>
       </ng-template>
+      <ng-template tdDataTableTemplate="von" let-value="value" let-row="row" let-column="column">
+        <p>{{getFormat(row.von)}}</p>
+      </ng-template>
+      <ng-template tdDataTableTemplate="bis" let-value="value" let-row="row" let-column="column">
+        <p>{{getFormat(row.bis)}}</p>
+      </ng-template>
       <ng-template tdDataTableTemplate="Aktionen" let-value="value" let-row="row" let-column="column">
         <button mat-button (click)="deleteAntrag(row.AntragID)"><mat-icon>delete</mat-icon></button>
         <button mat-button [routerLink]="['/editAntrag', row.AntragID]"><mat-icon>edit</mat-icon></button>

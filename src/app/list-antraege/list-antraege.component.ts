@@ -47,6 +47,11 @@ export class ListAntraegeComponent implements OnInit {
     return tage;
   }
 
+  getFormat(date){
+    let formattedDate = moment(date).format("DD.MM.YYYY");
+    return formattedDate;
+  }
+
   deleteAntrag(id: number): void {
     this.antragService
       .deleteAntrag(id)
