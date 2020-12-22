@@ -5,13 +5,15 @@ import { BenutzerComponent } from './benutzer/benutzer.component';
 import { BenutzerverwaltungComponent } from './benutzerverwaltung/benutzerverwaltung.component';
 import { EditBenutzerComponent } from './edit-benutzer/edit-benutzer.component';
 import { HomeComponent } from './home/home.component';
+import { ListAntraegeComponent } from './list-antraege/list-antraege.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'benutzerverwaltung', component: BenutzerverwaltungComponent },
   { path: 'benutzer', component: BenutzerComponent},
   { path: 'editBenutzer/:id', component: EditBenutzerComponent},
-  { path: 'antrag', component: AntragComponent }
+  { path: 'antrag', component: AntragComponent },
+  { path: 'antraegeliste', component: ListAntraegeComponent }
 ];
 
 @NgModule({

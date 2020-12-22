@@ -27,6 +27,12 @@ export class AntragService {
     );
   }
 
+  getAntraegeByBenutzer(id: number): Observable<ApiModel.Urlaubsantrag[]> {
+    return this.http.get<ApiModel.Urlaubsantrag[]>(`${API_URL}${this.endpoint}benutzer/${id}`).pipe(
+      tap(_ => console.log('Antrag nach BenutzerID'))
+    );
+  }
+
   updateAntrag(antrag: ApiModel.Urlaubsantrag): Observable<ApiModel.Urlaubsantrag> {
     return this.http.put(`${API_URL}${this.endpoint}${antrag.AntragID}`, antrag).pipe(
       tap(_ => console.log('Antrag aktualisiert'))

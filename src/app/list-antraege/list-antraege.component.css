@@ -1,0 +1,16 @@
+h2{
+    text-align: center;
+}
+button.row1{
+    background: #f8f9fa;
+    width: 100%;
+}
+#listeAnträge{
+    margin: 10px;
+}
+mat-form-field {
+    width: 90%;
+}
+h3.noEntries{
+    text-align: center;
+}

@@ -1,0 +1,27 @@
+<div id="listeAnträge">
+    <h2>Urlaubsanträge der Mitarbeiter</h2>
+    <mat-grid-list cols="2" rowHeight="40px" gutterSize="5px">
+      <mat-grid-tile>
+        <mat-form-field>
+        <mat-label>Mitarbeiter</mat-label>
+                <mat-select matNativeControl name="benutzer" [(ngModel)]="Benutzer.BenutzerID" class="row1" (selectionChange)="getAntraege(Benutzer.BenutzerID)">
+                    <mat-option *ngFor="let benutzer of alleBenutzer" [value]="benutzer.BenutzerID">
+                        {{benutzer.BenutzerID}}: {{benutzer.Vorname}} {{benutzer.Nachname}}
+                    </mat-option>
+                </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-stroked-button routerLink="" routerLinkActive="active" class="row1">Zur Startseite</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <td-data-table #dataTable [data]="Antraege" [columns]="columns">
+      <ng-template tdDataTableTemplate="Aktionen" let-value="value" let-row="row" let-column="column">
+        <button mat-button (click)="deleteAntrag(row.AntragID)"><mat-icon>delete</mat-icon></button>
+        <button mat-button [routerLink]="['/editAntrag', row.AntragID]"><mat-icon>edit</mat-icon></button>
+      </ng-template>
+    </td-data-table>
+    <div *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
+      <h3 class="noEntries">Keine Einträge vorhanden.</h3>
+    </div>
+    </div>

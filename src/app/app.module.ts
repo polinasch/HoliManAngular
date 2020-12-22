@@ -24,6 +24,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AntragComponent } from './antrag/antrag.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { ListAntraegeComponent } from './list-antraege/list-antraege.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {MatRadioModule} from '@angular/material/radio';
     BenutzerverwaltungComponent,
     BenutzerComponent,
     EditBenutzerComponent,
-    AntragComponent
+    AntragComponent,
+    ListAntraegeComponent
   ],
   imports: [
     BrowserModule,
