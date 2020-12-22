@@ -14,7 +14,7 @@
     <button mat-button [routerLink]="['/editBenutzer', row.BenutzerID]"><mat-icon>edit</mat-icon></button>
   </ng-template>
 </td-data-table>
-<div class="md-padding" *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
-  <h3>Keine Einträge vorhanden.</h3>
+<div *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
+  <h3 class="noEntries">Keine Einträge vorhanden.</h3>
 </div>
 </div>

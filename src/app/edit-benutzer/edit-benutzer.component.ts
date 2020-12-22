@@ -53,7 +53,7 @@ export class EditBenutzerComponent implements OnInit, OnDestroy {
     this.benutzerService
       .updateBenutzer(this.Benutzer)
       .toPromise()
-      .then((value: ApiModel.Benutzer) => {
+      .then(() => {
         this.router.navigate(['/benutzerverwaltung']);
       })
       .catch((reason: any) => {

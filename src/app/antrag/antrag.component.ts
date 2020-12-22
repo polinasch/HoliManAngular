@@ -26,7 +26,6 @@ export class AntragComponent implements OnInit {
   ];
   Gruende: string[] = ['Umzug', 'Hochzeit', 'Geburt', 'Sonstiges'];
   minAnfang: Date;
-  //minEnde: Date = this.setEnddate();
 
   constructor(private router: Router, private benutzerService: BenutzerService, private antragService: AntragService) { 
     const datum = new Date();
@@ -44,14 +43,6 @@ export class AntragComponent implements OnInit {
 
   getBenutzer(): void {
     this.benutzerService.getBenutzer().subscribe(benutzer => (this.alleBenutzer = benutzer));
-  }
-
-  setEnddate(): Date {
-    if (this.Antrag.bis < this.Antrag.von) {
-      this.Antrag.bis = new Date(this.Antrag.von.getFullYear(), this.Antrag.von.getMonth(), this.Antrag.von.getDate() );
-      return this.Antrag.bis;
-    }
-    return this.Antrag.bis;
   }
 
   addAntrag(): void {
