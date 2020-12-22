@@ -26,8 +26,10 @@
         <p>{{getFormat(row.bis)}}</p>
       </ng-template>
       <ng-template tdDataTableTemplate="Aktionen" let-value="value" let-row="row" let-column="column">
-        <button mat-button (click)="deleteAntrag(row.AntragID)"><mat-icon>delete</mat-icon></button>
-        <button mat-button [routerLink]="['/editAntrag', row.AntragID]"><mat-icon>edit</mat-icon></button>
+        <button mat-icon-button [routerLink]="['/editAntrag', row.AntragID]"><mat-icon>edit</mat-icon></button>
+        <button mat-icon-button color="primary"><mat-icon>mail</mat-icon></button>
+        <button mat-icon-button color="warn"><mat-icon>clear</mat-icon></button>
+        <button mat-icon-button (click)="deleteAntrag(row.AntragID)" color="warn"><mat-icon>delete</mat-icon></button>
       </ng-template>
     </td-data-table>
     <div *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
