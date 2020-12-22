@@ -48,7 +48,7 @@
             </mat-form-field>
         </p>
         <p>
-            Anzahl der Urlaubstag:
+            Anzahl der Urlaubstage: {{getUrlaubstage()}}
         </p>
     </form>
     <button mat-stroked-button (click)="addAntrag()" [disabled]="!newAntragForm.form.valid">Speichern</button>&nbsp;

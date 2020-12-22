@@ -5,6 +5,7 @@ import { ArgumentOutOfRangeError } from 'rxjs';
 import { ApiModel } from '../Models/api.model';
 import { AntragService } from '../Services/antrag.service';
 import { BenutzerService } from '../Services/benutzer.service';
+import * as moment from 'moment';
 
 interface Art {
   value: string;
@@ -43,6 +44,15 @@ export class AntragComponent implements OnInit {
 
   getBenutzer(): void {
     this.benutzerService.getBenutzer().subscribe(benutzer => (this.alleBenutzer = benutzer));
+  }
+
+  getUrlaubstage(){
+    if (this.Antrag.bis == null || this.Antrag.von == null){
+      let tage = 0;
+      return tage;
+    }
+    let urlaubstage = moment(this.Antrag.bis).diff(moment(this.Antrag.von), 'days')+1;
+    return urlaubstage;
   }
 
   addAntrag(): void {
