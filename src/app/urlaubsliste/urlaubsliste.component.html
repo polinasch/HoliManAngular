@@ -1,0 +1,27 @@
+<div id="urlaubsliste">
+    <h2>Mitarbeiter im Urlaub</h2>
+    <button mat-stroked-button routerLink="" routerLinkActive="active" class="row1">Zur Startseite</button>
+    <td-data-table #dataTable [data]="alleAntraege" [columns]="columns">
+        <ng-template tdDataTableTemplate="BenutzerID" let-value="value" let-row="row" let-column="column">
+            <p>{{row.benutzer.BenutzerID}}</p>
+        </ng-template>
+        <ng-template tdDataTableTemplate="Nachname" let-value="value" let-row="row" let-column="column">
+            <p>{{row.benutzer.Nachname}}</p>
+        </ng-template>
+        <ng-template tdDataTableTemplate="Vorname" let-value="value" let-row="row" let-column="column">
+            <p>{{row.benutzer.Vorname}}</p>
+        </ng-template>
+        <ng-template tdDataTableTemplate="Urlaubstage" let-value="value" let-row="row" let-column="column">
+            <p>{{getUrlaubstage(row.von, row.bis)}}</p>
+        </ng-template>
+        <ng-template tdDataTableTemplate="von" let-value="value" let-row="row" let-column="column">
+            <p>{{getFormat(row.von)}}</p>
+          </ng-template>
+          <ng-template tdDataTableTemplate="bis" let-value="value" let-row="row" let-column="column">
+            <p>{{getFormat(row.bis)}}</p>
+          </ng-template>
+    </td-data-table>
+    <div *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
+      <h3 class="noEntries">Keine Einträge vorhanden.</h3>
+    </div>
+</div>
