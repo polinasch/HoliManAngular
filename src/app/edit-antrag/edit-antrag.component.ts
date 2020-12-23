@@ -43,7 +43,7 @@ export class EditAntragComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-
+    this.subscription.unsubscribe();
   }
 
   getUrlaubstage(){
