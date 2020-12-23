@@ -1,0 +1,18 @@
+<div id="konfiguration">
+    <h2>Arbeitstage konfigurieren</h2>
+    <form id="form" #newKonfigurationForm="ngForm">
+        <label>Wählen Sie die Arbeitstage aus:</label>
+        <section>
+            <mat-checkbox name="montag" #montagControl="ngModel" [(ngModel)]="model.Montag">Montag</mat-checkbox><br>
+            <mat-checkbox name="dienstag" #dienstagControl="ngModel" [(ngModel)]="model.Dienstag">Dienstag</mat-checkbox><br>
+            <mat-checkbox name="mittwoch" #mittwochControl="ngModel" [(ngModel)]="model.Mittwoch">Mittwoch</mat-checkbox><br>
+            <mat-checkbox name="donnerstag" #donnerstagControl="ngModel" [(ngModel)]="model.Donnerstag">Donnerstag</mat-checkbox><br>
+            <mat-checkbox name="freitag" #freitagControl="ngModel" [(ngModel)]="model.Freitag">Freitag</mat-checkbox><br>
+            <mat-checkbox name="samstag" #samstagControl="ngModel" [(ngModel)]="model.Samstag">Samstag</mat-checkbox><br>
+            <mat-checkbox name="sonntag" #sonntagControl="ngModel" [(ngModel)]="model.Sonntag">Sonntag</mat-checkbox>
+        </section>
+    </form>
+    <button mat-stroked-button (click)="addKonfiguration()"
+        [disabled]="!newKonfigurationForm.form.valid">Speichern</button>&nbsp;
+    <button mat-stroked-button routerLink="">Abbrechen</button>
+</div>

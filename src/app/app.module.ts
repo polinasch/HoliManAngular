@@ -26,6 +26,8 @@ import { AntragComponent } from './antrag/antrag.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { ListAntraegeComponent } from './list-antraege/list-antraege.component';
 import { EditAntragComponent } from './edit-antrag/edit-antrag.component';
+import { UrlaubslisteComponent } from './urlaubsliste/urlaubsliste.component';
+import { KonfigurationComponent } from './konfiguration/konfiguration.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { EditAntragComponent } from './edit-antrag/edit-antrag.component';
     EditBenutzerComponent,
     AntragComponent,
     ListAntraegeComponent,
-    EditAntragComponent
+    EditAntragComponent,
+    UrlaubslisteComponent,
+    KonfigurationComponent
   ],
   imports: [
     BrowserModule,
