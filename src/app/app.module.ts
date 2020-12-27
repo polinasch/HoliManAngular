@@ -28,6 +28,7 @@ import { ListAntraegeComponent } from './list-antraege/list-antraege.component';
 import { EditAntragComponent } from './edit-antrag/edit-antrag.component';
 import { UrlaubslisteComponent } from './urlaubsliste/urlaubsliste.component';
 import { KonfigurationComponent } from './konfiguration/konfiguration.component';
+import { ErhalteneAntraegeComponent } from './erhaltene-antraege/erhaltene-antraege.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { KonfigurationComponent } from './konfiguration/konfiguration.component'
     ListAntraegeComponent,
     EditAntragComponent,
     UrlaubslisteComponent,
-    KonfigurationComponent
+    KonfigurationComponent,
+    ErhalteneAntraegeComponent
   ],
   imports: [
     BrowserModule,

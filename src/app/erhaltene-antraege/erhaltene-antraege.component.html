@@ -1,0 +1,44 @@
+<div id="erhalteneAnträge">
+    <h2>Zu genehmigende Urlaubsanträge</h2>
+    <mat-grid-list cols="2" rowHeight="40px" gutterSize="5px">
+      <mat-grid-tile>
+        <mat-form-field>
+        <mat-label>Vorgesetzter</mat-label>
+                <mat-select matNativeControl name="vorgesetzter" [(ngModel)]="Vorgesetzter.BenutzerID" class="row1">
+                    <mat-option *ngFor="let vorgesetzter of alleVorgesetzten" [value]="vorgesetzter.BenutzerID">
+                        ID: {{vorgesetzter.BenutzerID}}: {{vorgesetzter.Vorname}} {{vorgesetzter.Nachname}}
+                    </mat-option>
+                </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-stroked-button routerLink="" routerLinkActive="active" class="row1">Zur Startseite</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <td-data-table #dataTable [data]="Antraege" [columns]="columns">
+      <ng-template tdDataTableTemplate="Urlaubstage" let-value="value" let-row="row" let-column="column">
+        <p>{{getUrlaubstage(row.von, row.bis)}}</p>
+      </ng-template>
+      <ng-template tdDataTableTemplate="von" let-value="value" let-row="row" let-column="column">
+        <p>{{getFormat(row.von)}}</p>
+      </ng-template>
+      <ng-template tdDataTableTemplate="bis" let-value="value" let-row="row" let-column="column">
+        <p>{{getFormat(row.bis)}}</p>
+      </ng-template>
+      <ng-template tdDataTableTemplate="Vorname" let-value="value" let-row="row" let-column="column">
+        <p>{{row.benutzer.Vorname}}</p>
+      </ng-template>
+      <ng-template tdDataTableTemplate="Nachname" let-value="value" let-row="row" let-column="column">
+        <p>{{row.benutzer.Nachname}}</p>
+      </ng-template>
+      <ng-template tdDataTableTemplate="Aktionen" let-value="value" let-row="row" let-column="column">
+        <button mat-icon-button><mat-icon>visibility</mat-icon></button>
+        <button mat-icon-button color="primary"><mat-icon>done</mat-icon></button>
+        <button mat-icon-button color="warn"><mat-icon>clear</mat-icon></button>
+      </ng-template>
+    </td-data-table>
+    <div *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
+      <h3 class="noEntries">Keine Einträge vorhanden.</h3>
+    </div>
+    </div>
+

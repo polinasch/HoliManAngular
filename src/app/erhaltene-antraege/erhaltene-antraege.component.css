@@ -1,0 +1,17 @@
+h2{
+    text-align: center;
+}
+button.row1{
+    background: #f8f9fa;
+    width: 100%;
+}
+#erhalteneAnträge{
+    margin: 10px;
+    width: auto;
+}
+mat-form-field {
+    width: 90%;
+}
+h3.noEntries{
+    text-align: center;
+}
