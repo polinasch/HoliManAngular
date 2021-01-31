@@ -37,5 +37,4 @@ export class KonfigurationComponent implements OnInit {
         // do something on finally
       });
   }
-
 }

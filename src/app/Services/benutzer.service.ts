@@ -50,5 +50,4 @@ export class BenutzerService {
       tap(_ => console.log('Benutzer gelöscht'))
     );
   }
-
 }

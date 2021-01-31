@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ITdDataTableColumn } from '@covalent/core/data-table';
 import * as moment from 'moment';
-import { AntragComponent } from '../antrag/antrag.component';
 import { ApiModel } from '../Models/api.model';
 import { AntragService } from '../Services/antrag.service';
 import { BenutzerService } from '../Services/benutzer.service';
@@ -53,5 +52,4 @@ export class ErhalteneAntraegeComponent implements OnInit {
   getAntraege(): void {
     this.antragService.getAntraege().subscribe(anträge => (this.Antraege = anträge));
   }
-
 }

@@ -37,5 +37,4 @@ export class AntragdetailsComponent implements OnInit, OnDestroy  {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-
 }

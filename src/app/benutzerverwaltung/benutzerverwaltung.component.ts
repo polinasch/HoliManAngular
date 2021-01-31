@@ -49,5 +49,4 @@ export class BenutzerverwaltungComponent implements OnInit {
         // do something on finally
       });
   }
-
 }

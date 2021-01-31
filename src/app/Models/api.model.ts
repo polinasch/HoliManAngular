@@ -42,5 +42,4 @@ export namespace ApiModel {
       Abkürzung?: string;
       Name?: string;
     }
-
   }

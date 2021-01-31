@@ -68,6 +68,4 @@ export class ListAntraegeComponent implements OnInit {
         // do something on finally
       });
   }
-
-
 }

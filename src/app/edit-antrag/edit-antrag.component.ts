@@ -69,5 +69,4 @@ export class EditAntragComponent implements OnInit, OnDestroy {
         // do something on finally
       });
   }
-
 }

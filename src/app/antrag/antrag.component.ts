@@ -69,5 +69,4 @@ export class AntragComponent implements OnInit {
         // do something on finally
       });
   }
-
 }
