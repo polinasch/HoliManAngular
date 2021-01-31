@@ -32,7 +32,7 @@
         <p>{{row.benutzer.Nachname}}</p>
       </ng-template>
       <ng-template tdDataTableTemplate="Aktionen" let-value="value" let-row="row" let-column="column">
-        <button mat-icon-button><mat-icon>visibility</mat-icon></button>
+        <button mat-icon-button [routerLink]="['/antragdetails', row.AntragID]"><mat-icon>visibility</mat-icon></button>
         <button mat-icon-button color="primary"><mat-icon>done</mat-icon></button>
         <button mat-icon-button color="warn"><mat-icon>clear</mat-icon></button>
       </ng-template>

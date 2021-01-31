@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AntragComponent } from './antrag/antrag.component';
+import { AntragdetailsComponent } from './antragdetails/antragdetails.component';
 import { BenutzerComponent } from './benutzer/benutzer.component';
 import { BenutzerverwaltungComponent } from './benutzerverwaltung/benutzerverwaltung.component';
 import { EditAntragComponent } from './edit-antrag/edit-antrag.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'editAntrag/:id', component: EditAntragComponent },
   { path: 'urlaubsliste', component: UrlaubslisteComponent },
   { path: 'konfiguration', component: KonfigurationComponent },
-  { path: 'erhalteneAnträge', component: ErhalteneAntraegeComponent}
+  { path: 'erhalteneAnträge', component: ErhalteneAntraegeComponent},
+  { path: 'antragdetails/:id', component: AntragdetailsComponent }
 ];
 
 @NgModule({

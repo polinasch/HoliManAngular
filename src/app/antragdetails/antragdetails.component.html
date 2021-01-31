@@ -1,0 +1,88 @@
+<div id="details">
+    <h2>Detaillierter Urlaubsantrag</h2>
+    <form id="form" #detailsForm="ngForm">
+        <p>
+            <mat-form-field>
+                <mat-label>Vorname</mat-label>
+                <input matInput type="text" name="vorname" #vornameControl="ngModel"
+                    [(ngModel)]="Antrag.benutzer.Vorname" readonly>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Nachname</mat-label>
+                <input matInput type="text" name="nachname" #nachnameControl="ngModel"
+                    [(ngModel)]="Antrag.benutzer.Nachname" readonly>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Geburtsdatum</mat-label>
+                <input matInput name="geburtsdatum" #geburtsdatumControl="ngModel"
+                    [(ngModel)]="Antrag.benutzer.Geburtsdatum" readonly [matDatepicker]="geburtstag">
+                <mat-datepicker-toggle matSuffix [for]="geburtstag"></mat-datepicker-toggle>
+                <mat-datepicker #geburtstag></mat-datepicker>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Eintrittsdatum</mat-label>
+                <input matInput name="eintrittsdatum" #eintrittsdatumControl="ngModel"
+                    [(ngModel)]="Antrag.benutzer.Eintrittsdatum" readonly [matDatepicker]="eintritt">
+                <mat-datepicker-toggle matSuffix [for]="eintritt"></mat-datepicker-toggle>
+                <mat-datepicker #eintritt></mat-datepicker>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput type="email" name="email" #emailControl="ngModel" [(ngModel)]="Antrag.benutzer.Email"
+                    readonly>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Antrag ID</mat-label>
+                <input matInput type="text" name="antragid" #emailControl="ngModel" [(ngModel)]="Antrag.AntragID"
+                    readonly>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Urlaubsart</mat-label>
+                <mat-select matNativeControl name="urlaubsart" [(ngModel)]="Antrag.Urlaubsart" readonly>
+                    <mat-option *ngFor="let art of Arten" [value]="art.value">
+                        {{art.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </p>
+        <p>
+            <label>Grund</label>
+            <mat-radio-group name="grund" [(ngModel)]="Antrag.Grund" class="radio-group" readonly>
+                <mat-radio-button class="radio-button" *ngFor="let grund of Gruende" [value]="grund">
+                    {{grund}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Anfangsdatum</mat-label>
+                <input matInput name="anfangsdatum" #anfangsdatumControl="ngModel" [(ngModel)]="Antrag.von" readonly
+                    [matDatepicker]="anfang">
+                <mat-datepicker-toggle matSuffix [for]="anfang"></mat-datepicker-toggle>
+                <mat-datepicker #anfang></mat-datepicker>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Enddatum</mat-label>
+                <input matInput name="enddatum" #enddatumControl="ngModel" [(ngModel)]="Antrag.bis" readonly
+                    [matDatepicker]="ende">
+                <mat-datepicker-toggle matSuffix [for]="ende"></mat-datepicker-toggle>
+                <mat-datepicker #ende></mat-datepicker>
+            </mat-form-field>
+        </p>
+    </form>
+    <button mat-stroked-button routerLink="/erhalteneAnträge">Zurück zu den Anträgen</button>
+</div>

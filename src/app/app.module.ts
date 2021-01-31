@@ -29,6 +29,7 @@ import { EditAntragComponent } from './edit-antrag/edit-antrag.component';
 import { UrlaubslisteComponent } from './urlaubsliste/urlaubsliste.component';
 import { KonfigurationComponent } from './konfiguration/konfiguration.component';
 import { ErhalteneAntraegeComponent } from './erhaltene-antraege/erhaltene-antraege.component';
+import { AntragdetailsComponent } from './antragdetails/antragdetails.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { ErhalteneAntraegeComponent } from './erhaltene-antraege/erhaltene-antra
     EditAntragComponent,
     UrlaubslisteComponent,
     KonfigurationComponent,
-    ErhalteneAntraegeComponent
+    ErhalteneAntraegeComponent,
+    AntragdetailsComponent
   ],
   imports: [
     BrowserModule,
